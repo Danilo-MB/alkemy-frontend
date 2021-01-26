@@ -1,3 +1,5 @@
+import { SigninComponent } from './signin/signin.component';
+import { LoginComponent } from './login/login.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { OperationsComponent } from './operations/operations.component';
 import { HomeComponent } from './home/home.component';
@@ -9,6 +11,8 @@ const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'operations', component: OperationsComponent },
+  { path: 'signin', component: SigninComponent },
+  { path: 'login', component: LoginComponent },
   { path: '**', component:  ErrorPageComponent }
 ];
 

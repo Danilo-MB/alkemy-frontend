@@ -6,13 +6,19 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { OperationsComponent } from './operations/operations.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { LoginComponent } from './login/login.component';
+import { SigninComponent } from './signin/signin.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     OperationsComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    NavbarComponent,
+    LoginComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,
