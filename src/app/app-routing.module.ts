@@ -1,3 +1,4 @@
+import { NewOperationComponent } from './new-operation/new-operation.component';
 import { SigninComponent } from './signin/signin.component';
 import { LoginComponent } from './login/login.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'operations', component: OperationsComponent },
   { path: 'signin', component: SigninComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'new', component: NewOperationComponent },
   { path: '**', component:  ErrorPageComponent }
 ];
 

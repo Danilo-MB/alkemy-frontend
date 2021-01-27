@@ -1,3 +1,7 @@
+import { HttpClientModule } from '@angular/common/http';
+import { OperationsService } from './services/operations.service';
+import { SigninService } from './services/signin.service';
+import { LoginService } from './services/login.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -9,6 +13,7 @@ import { ErrorPageComponent } from './error-page/error-page.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
 import { SigninComponent } from './signin/signin.component';
+import { NewOperationComponent } from './new-operation/new-operation.component';
 
 @NgModule({
   declarations: [
@@ -18,13 +23,19 @@ import { SigninComponent } from './signin/signin.component';
     ErrorPageComponent,
     NavbarComponent,
     LoginComponent,
-    SigninComponent
+    SigninComponent,
+    NewOperationComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    SigninService,
+    LoginService,
+    OperationsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

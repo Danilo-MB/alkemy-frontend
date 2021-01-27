@@ -1,3 +1,4 @@
+import { OperationsService } from './../services/operations.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OperationsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private operationService: OperationsService) { }
 
   ngOnInit() {
+    this.operationService.getOperations();
   }
 
 }
