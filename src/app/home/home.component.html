@@ -2,14 +2,12 @@
 <body class="form-body">
 <button class="btn btn-primary" routerLink="/new">Nuevo Registro</button>
 
-<div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title">$ 45.000</h5>
-    <p>Balance actual de sus ingresos/egresos.</p>
-  </div>
-</div>
+<summary></summary>
 
-<h5>Últimas 10 operaciones:</h5>
-<operations limit=10 ></operations> 
+<h5 *ngIf="operations.length >= 10">Últimas 10 operaciones:</h5>
+<h5 *ngIf="operations.length < 10 && operations.length > 1 ">Últimas {{ operations.length }} operaciones:</h5>
+<h5 *ngIf="operations.length === 1">Última operación:</h5>
+<h5 *ngIf="operations.length === 0">No hay operaciones registradas.</h5>
+<operations limit=10></operations> 
 
 </body>

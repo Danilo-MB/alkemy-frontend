@@ -1,4 +1,6 @@
+import { OperationsService } from './../services/operations.service';
 import { Component, OnInit } from '@angular/core';
+import { Operation } from '../models/operation';
 
 @Component({
   selector: 'home',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  operations: Operation[] = [];
+
+  constructor(private operationService: OperationsService) { }
 
   ngOnInit() {
+    this.operationService.getOperations().subscribe(ops => this.operations = ops);
   }
 
 }

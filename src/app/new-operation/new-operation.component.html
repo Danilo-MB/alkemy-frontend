@@ -1,34 +1,42 @@
 <navbar></navbar>
 <body class="form-body">
 <div class="col-6">  
-    <h5>{{ id? "Actualizar Operación " + id : "Nueva Operación" }}</h5>
-    <h5>{{ message }}</h5>
+    <h5>{{ id? "Actualizar Operación id: " + id : "Nueva Operación" }}</h5>
+    <div class="alert-secondary">{{ message }}</div>
     <form #f="ngForm">
         <div class="form-group">
             <label for="concept">Concepto</label>
             <input [(ngModel)]="operation.concept" name="concept" id="concept" type="text" class="form-control" required>
-            <div class="alert alert-danger">El campo es obligatorio.</div>
         </div>
         <div class="form-group">
             <label for="amount">Monto</label>
             <div class="input-group"><span class="input-group-text">$</span>
                 <input [(ngModel)]="operation.amount" name="amount" id="amount" type="number" class="form-control" required>
             </div>
-            <div class="alert alert-danger">El campo es obligatorio.</div>
         </div>
         <div class="form-group">
             <label for="concept">Fecha</label>
             <input [(ngModel)]="operation.date" name="date" id="date" type="date" class="form-control" required>
-            <div class="alert alert-danger">El campo es obligatorio.</div>
         </div>
         <div class="form-group">
-            <label for="imageUrl">Tipo de Ingreso</label>
-            <input [(ngModel)]="operation.operation_type" name="operation_type" id="operation_type" type="text" class="form-control" required>
-            <div class="alert alert-danger" >El campo es obligatorio.</div>
+            <label for="operation_type">Tipo de Operación</label>
+            <select [disabled]="operation.id" [(ngModel)]="operation.operation_type" name="operation_type" id="operation_type" class="form-control" required>
+                <option>In</option>
+                <option>Out</option>
+            </select>
         </div>
+
         <button type="button" class="btn btn-primary" (click)="saveOperation(f.value)">Save</button>
         <button type="button" class="btn btn-danger" (click)="deleteOperation()">Delete</button>
     </form>
 </div> 
 </body>
+
+
+
+<!-- TODO: Implementar seleccipon desde una lista para restringir opciones a in y out -->
+<!-- <div class="form-group">
+    <label for="operation_type">Tipo de Operación (in/out)</label>
+    <input [(ngModel)]="operation.operation_type" name="operation_type" id="operation_type" type="text" class="form-control" required>
+</div> -->
 

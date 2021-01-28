@@ -1,8 +1,7 @@
 import { OperationsService } from './../services/operations.service';
-import { HttpClient } from '@angular/common/http';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Operation } from '../models/operation';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-operation',
@@ -16,7 +15,10 @@ export class NewOperationComponent implements OnInit {
   
   API_URI = 'http://localhost:3000';
 
-  constructor(private http: HttpClient, private operationsService: OperationsService, private route: ActivatedRoute) {
+  constructor(
+    private operationsService: OperationsService, 
+    private router: Router,
+    private route: ActivatedRoute) {
 
     this.id = Number(this.route.snapshot.paramMap.get('id'));
     if(this.id){
@@ -25,13 +27,26 @@ export class NewOperationComponent implements OnInit {
 
   }
 
-  saveOperation(operation){
+  saveOperation(operation: Operation){
     if(this.id){
       operation.id = this.id;
-      this.operationsService.updateOperation(operation.id, operation).subscribe(o => this.message = "Operation updated");
+      this.operationsService.updateOperation(operation.id, operation).subscribe(o => this.message = "Operation Updated");
+      setTimeout( () => {
+        this.router.navigate(['/home']);
+      }, 3000);
     }else{
-      this.operationsService.saveOperation(operation).subscribe(o => this.message = "Operation created");
+      this.operationsService.saveOperation(operation).subscribe(o => this.message = "Operation Created");
+      setTimeout( () => {
+        this.router.navigate(['/home']);
+      }, 3000);
     }
+  }
+
+  deleteOperation(){
+    this.operationsService.deleteOperation(this.id).subscribe(o => this.message = "Operation Deleted"); 
+    setTimeout( () => {
+      this.router.navigate(['/home']);
+    }, 3000);
   }
 
   ngOnInit() {
