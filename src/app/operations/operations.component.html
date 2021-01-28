@@ -11,13 +11,13 @@
       </tr>
     </thead> 
     <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+      <tr *ngFor="let operation of operations">
+        <td>{{ operation.date| date }}</td>
+        <td>{{ operation.concept }}</td>
+        <td>{{ operation.amount }}</td>
+        <td>{{ operation.operation_type }}</td>
         <td>
-          <a>Ver</a>
+          <a routerLink="{{ '/operations/' + operation.id }}">Editar</a>
         </td>
       </tr>
     </tbody> 

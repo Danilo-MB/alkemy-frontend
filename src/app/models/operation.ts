@@ -1,7 +1,8 @@
-export interface Operation {
+export class Operation {
     id?: number;
-    concept: string;
-    amount: number;
-    created_at: Date;
-    operation_type: string
+    concept?: string;
+    amount?: number;
+    created_at?: Date;
+    date?: string;
+    operation_type?: string
 }
