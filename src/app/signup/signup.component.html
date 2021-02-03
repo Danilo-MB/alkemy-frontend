@@ -2,15 +2,16 @@
 <body class="form-body">
 <h3>Sign Up</h3>
 <div class="col-3">
+    <div class="alert-secondary">{{ message }}</div>
     <div class="row">
         <form #f="ngForm">
             <div class="form-group">
                 <label for="email">e-mail</label>
-                <input type="text" class="form-control" name="email" id="email" required>
+                <input [(ngModel)]="user.email"type="text" class="form-control" name="email" id="email" required>
             </div>
             <div class="form-group">
-                <label for="email">Password</label>
-                <input type="password" class="form-control" name="password" id="password" required>
+                <label for="pass">Contraseña</label>
+                <input [(ngModel)]="user.pass" type="password" class="form-control" name="pass" id="pass" required>
             </div>
             <button class="btn btn-primary" (click)="saveUser(f.value)">Sign Up</button>
         </form>

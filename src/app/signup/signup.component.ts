@@ -1,6 +1,7 @@
 import { SignupService } from './../services/signup.service';
 import { Component, OnInit } from '@angular/core';
 import { User } from '../models/user';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -9,13 +10,23 @@ import { User } from '../models/user';
 })
 export class SignupComponent implements OnInit {
 
-  user: User;
+  user = {};
+  message: string;
 
-  constructor(public signupService: SignupService) { }
+  constructor(
+    public signupService: SignupService, 
+    private router: Router, 
+    private route: ActivatedRoute
+  ) { }
 
-  saveUser(){
-    this.signupService.saveUser(this.user).subscribe();
-  }
+    
+  saveUser(user: User){
+    this.signupService.saveUser(user).subscribe(u => this.message = "Usuario registrado");
+    setTimeout( () => {
+      this.router.navigate(['/home']);
+    }, 3000);
+  }  
+
 
   ngOnInit() {
     
