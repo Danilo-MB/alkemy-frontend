@@ -4,5 +4,6 @@ export class Operation {
     amount?: number;
     created_at?: Date;
     date?: string;
-    operation_type?: string
+    operation_type?: string;
+    category?: string
 }

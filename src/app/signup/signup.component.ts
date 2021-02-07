@@ -23,7 +23,7 @@ export class SignupComponent implements OnInit {
   saveUser(user: User){
     this.signupService.saveUser(user).subscribe(u => this.message = "Usuario registrado");
     setTimeout( () => {
-      this.router.navigate(['/home']);
+      this.router.navigate(['/login']);
     }, 3000);
   }  
 

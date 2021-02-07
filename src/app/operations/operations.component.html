@@ -6,6 +6,7 @@
         <th class="th">Concepto</th>
         <th class="th">Monto</th>
         <th class="th">IN / OUT</th>
+        <th class="th">Categoría</th>
         <th></th>
       </tr>
     </thead> 
@@ -15,6 +16,7 @@
         <td class="td">{{ operation.concept }}</td>
         <td class="td">{{ operation.amount | currency:'USD' }}</td>
         <td class="td">{{ operation.operation_type }}</td>
+        <td class="td">{{ operation.category }}</td>
         <td>
           <a routerLink="{{ '/operations/' + operation.id }}">Editar</a>
         </td>
