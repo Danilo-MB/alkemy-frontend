@@ -1,0 +1,16 @@
+<h6>Filtrar por Categoría</h6>
+<ul class="list-group">
+    <li class="list-group-item list-group-item-action"
+        routerLinkActive="active"
+        routerLink="/operations"
+    >
+    Todas las Categorías</li>
+    <li *ngFor="let c of categories" 
+        class="list-group-item list-group-item-action"
+        routerLink="/"
+        [queryParams]="{ category: c.category }"
+    
+    >
+    {{ c.category }}</li>
+</ul>
+<router-outlet></router-outlet>

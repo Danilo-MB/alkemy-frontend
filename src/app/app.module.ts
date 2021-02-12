@@ -1,3 +1,5 @@
+import { RouterModule } from '@angular/router';
+import { CategoryService } from './services/category.service';
 import { HttpClientModule } from '@angular/common/http';
 import { OperationsService } from './services/operations.service';
 import { LoginService } from './services/login.service';
@@ -16,6 +18,7 @@ import { NewOperationComponent } from './new-operation/new-operation.component';
 import { FormsModule } from '@angular/forms';
 import { SummaryComponent } from './summary/summary.component';
 import { SignupService } from './services/signup.service';
+import { FilterComponent } from './filter/filter.component';
 
 @NgModule({
   declarations: [
@@ -27,18 +30,21 @@ import { SignupService } from './services/signup.service';
     LoginComponent,
     SignupComponent,
     NewOperationComponent,
-    SummaryComponent
+    SummaryComponent,
+    FilterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    RouterModule
   ],
   providers: [
     SignupService,
     LoginService,
-    OperationsService
+    OperationsService,
+    CategoryService
   ],
   bootstrap: [AppComponent]
 })

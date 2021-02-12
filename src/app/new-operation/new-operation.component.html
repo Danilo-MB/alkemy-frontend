@@ -28,9 +28,7 @@
         <div class="form-group">
             <label for="operation_type">Categoría</label>
             <select [(ngModel)]="operation.category" name="category" id="category" class="form-control" required>
-                <option>Comida</option>
-                <option>Impuestos</option>
-                <option>Ocio</option>
+                <option *ngFor="let c of categories">{{ c }}</option>
             </select>
         </div>    
         <button type="button" class="btn btn-primary" (click)="saveOperation(f.value)">Guardar</button>

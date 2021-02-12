@@ -25,6 +25,7 @@ export class NewOperationComponent implements OnInit {
       this.operationsService.getOperation(this.id).subscribe(op => this.operation = op);
     }
 
+
   }
 
   saveOperation(operation: Operation){

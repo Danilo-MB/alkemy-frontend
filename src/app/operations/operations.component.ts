@@ -10,6 +10,8 @@ import { Operation } from '../models/operation';
 export class OperationsComponent implements OnInit {
   operations: Operation[] = [];
   @Input() limit: number = 0;
+  category: string;
+  filteredOperations: Operation[] = [];
 
   constructor(private operationService: OperationsService) { }
 

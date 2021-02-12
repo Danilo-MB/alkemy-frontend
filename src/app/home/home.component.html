@@ -2,7 +2,16 @@
 <body class="form-body">
 <button class="btn btn-primary" routerLink="/new">Nuevo Registro</button>
 
-<summary></summary>
+<div class="row">
+    <div class="col-9">
+        <summary></summary>
+    </div>
+    <div class="col-3">
+        <filter></filter>
+    </div>
+</div>
+
+
 
 <h5 *ngIf="operations.length >= 10">Últimas 10 operaciones:</h5>
 <h5 *ngIf="operations.length < 10 && operations.length > 1 ">Últimas {{ operations.length }} operaciones:</h5>
